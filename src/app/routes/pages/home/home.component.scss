@@ -1,0 +1,30 @@
+.row-main {
+    background: rgb(14, 13, 13);
+    height: 100vh;
+}
+.col-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.col-img {
+    width: 80%;
+    border-radius: 10px;
+    margin-top: 150px;
+    margin-left: 30px;
+}
+.row-top {
+    margin-top: 260px;
+}
+.btn-style {
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 23px;
+    background-color: #55b4b0;
+}
+.col-para {
+    text-align: center;
+    padding-left: 60px;
+}
