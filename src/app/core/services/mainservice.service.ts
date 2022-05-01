@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError, timeout, TimeoutError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
+declare var require: any
+const CDP = require('chrome-remote-interface');
 
 @Injectable({
   providedIn: 'root'

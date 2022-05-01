@@ -14,6 +14,12 @@ export class SignupComponent implements OnInit {
   constructor(private service: MainserviceService) { }
 
   ngOnInit(): void {
+
+    this.service.api({},`life_tracking/all_users`,200,'get')
+    .subscribe((res)=>{
+      console.log(res);
+    })
+
   }
   registerForm = new FormGroup({
     username: new FormControl(""),
