@@ -1,1 +1,46 @@
-<p>signup works!</p>
+<form [formGroup]="registerForm" (ngSubmit)="registerSubmited()" class="border p-3 rounded-3">
+    <div class="row g-0">
+        <div class="col text-center p-2 mb-3 bg-light">
+            <span class="fs-3">Register</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mb-3">
+            <label for="Username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="Username" formControlName="username">
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="email" class="form-label">Email <Address></Address></label>
+                <input type="email" class="form-control" id="email" formControlName="email">
+                <div class="form-text"></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mb-3">
+            <label for="contact" class="form-label">Contact Number</label>
+            <input type="text" class="form-control" id="Contact" formControlName="contact">
+            <div class="form-text"></div>
+        </div>
+
+        <div class="col ps-3 mb-3">
+            <div class="m-1">Gender</div>
+            <div class="form-check form-check inline">
+                <input type="radio" class="form-check-input" value="m" id="female" formControlName="gender">
+                <label class="form-check-label" for="female">Female</label>
+            </div>
+            <div class="form-check form-check inline">
+                <input type="radio" class="form-check-input" value="f" id="male" formControlName="gender">
+                <label class="form-check-label" for="male">Male</label>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 offset-3">
+        <div class="d-grid">
+            <button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary">SUBMIT</button>
+        </div>
+    </div>
+
+</form>
