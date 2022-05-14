@@ -1,30 +1,107 @@
-.row-main {
-    background: rgb(14, 13, 13);
-    height: 100vh;
+.col-body,
+h1 {
+    font-family: "Raleway", sans-serif;
 }
-.col-btn {
+.col-body {
+    height: 100%;
+    width: 98vw;
+}
+.bgimg {
+    // background-image: url("https://www.w3schools.com/w3images/forestbridge.jpg");
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.col-img {
+    width: 56%;
+}
+.col-h{
+    width: 80%;
+    margin: auto;
+    margin-top: 73px;
+    font-weight: 700;
+    // color: rgb(243, 63, 93);
+}
+.col-sign{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.col-img {
-    width: 80%;
-    border-radius: 10px;
-    margin-top: 150px;
-    margin-left: 30px;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
-.row-top {
-    margin-top: 260px;
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #16384c;
 }
-.btn-style {
-    width: 150px;
-    height: 50px;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 23px;
-    background-color: #55b4b0;
+
+.container{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px;
+    margin: auto;
 }
-.col-para {
+
+.container .card{
+    position: relative;
+    max-width: 400px;
+    height: 420px;
+    background: #fff;
+    margin: 30px 10px;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 202px rgba(0,0,0,0.5);
+    transition: 0.3s ease-in-out;
+    border-radius : 4px;
+}
+
+.container .card:hover{
+    height: 600px;
+}
+
+.container .card .imgBx{
+    position: relative;
+    width: 300px;
+    height: 260px;
+    top: -60px;
+    left: 20px;
+    z-index: 1;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.container .card .imgBx img{
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.container .card .content{
+    position: relative;
+    margin-top: -140px;
+    padding: 10px 15px;
     text-align: center;
-    padding-left: 60px;
+    color: #111;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.container .card:hover .content{
+    visibility: visible;
+    opacity: 1;
+    margin-top:  -40px;
+    transition-delay: 0.3s;
 }

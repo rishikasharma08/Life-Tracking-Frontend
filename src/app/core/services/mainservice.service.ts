@@ -16,7 +16,7 @@ export class MainserviceService {
   api(_data: any, url: any, flag: any, method?: string): Observable<any> {
 
     let api_url = "http://localhost:3000/";
-    
+
     // userBaseUrl: "https://api.lendee.com:4044/v1/",
     // userBaseUrl: "https://api.lendee.com:3010/v1/",
 
@@ -31,12 +31,12 @@ export class MainserviceService {
     else if (method === 'put') {
       output = this.http.put<any>(hitting_url, (_data), { headers: this.headers });
     } else if (method === 'object') {
+
       output = this.http.post<any>(hitting_url, (_data));
     }
     else {
-      output = this.http.post<any>(hitting_url, (_data));
+      output = this.http.post(hitting_url, (_data),{responseType: 'text'});
     }
-
 
     return output
       .pipe(
@@ -56,7 +56,7 @@ export class MainserviceService {
               // this.customPopups(data.flag, data.is_error);
             }
           }
-          return data;
+          return JSON.parse(data);
         }),
         catchError((error: any) => {
           if (error instanceof TimeoutError) {
@@ -83,13 +83,13 @@ export class MainserviceService {
 
   customPopups(data: any, err: any) {
     if (err == 0) {
-      this.toastr.success(data, err);
+      this.toastr.info(data);
     }
     else if (err == 1) {
-      this.toastr.error(data, err);
+      this.toastr.error(data);
     }
     else {
-      this.toastr.warning(data, err);
+      this.toastr.warning(data);
     }
   }
 }

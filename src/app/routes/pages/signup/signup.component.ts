@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MainserviceService } from 'src/app/core/services/mainservice.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -8,51 +9,77 @@ import { MainserviceService } from 'src/app/core/services/mainservice.service';
 })
 export class SignupComponent implements OnInit {
 
+  yesSignup: boolean = true;
+  yesLogin: boolean = false;
+  data: any;
 
-  // newTaskForm: FormGroup;
-
-  constructor(private service: MainserviceService) { }
+  constructor(private service: MainserviceService, private route: Router) { }
 
   ngOnInit(): void {
-
-    this.service.api({},`life_tracking/all_users`,200,'get')
-    .subscribe((res)=>{
-      console.log(res);
-    })
-
   }
   registerForm = new FormGroup({
     username: new FormControl(""),
     email: new FormControl(""),
+    password: new FormControl(""),
     contact: new FormControl(""),
     gender: new FormControl(""),
+    address: new FormControl(""),
+    dob: new FormControl("")
   });
 
-
-  profileForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
+  loginForm = new FormGroup({
+    email: new FormControl(""),
+    password: new FormControl("")
   });
 
-  registerSubmited() {
-    console.log(this.registerForm.value);
-
-    
+  
+  login() {
     let body = {
-      email: "rishikasharma7816@gmail.com",
-      password: "Rsh7816@"
+      email: this.loginForm.value.email,
+      password: this.loginForm.value.password
     }
 
     this.service.api(body, `life_tracking/login_user`, 200, 'post')
+    .subscribe((res) => {
+      console.log(res.msg);
+      if (res.error == 0) {
+        this.service.customPopups(res.msg, 0);
+        this.route.navigate(['/home']);
+      }
+      else{
+        this.service.customPopups(res.msg, 1);
+      }
+    })
+  }
+
+  registerSubmited() {
+    let body = {
+      name: this.registerForm.value.username,
+      email: this.registerForm.value.email,
+      password: this.registerForm.value.password,
+      contact: this.registerForm.value.contact,
+      address: this.registerForm.value.address,
+      gender: this.registerForm.value.gender,
+      dob: this.registerForm.value.dob
+    }
+
+    this.service.api(body, `life_tracking/first_register`, 200, 'post')
       .subscribe((res) => {
-        console.log(res);
+        console.log(res.msg);
+        if (res.error == 0) {
+          this.service.customPopups(res.msg, 0);
+          this.route.navigate(['/home']);
+        }
+        else{
+          this.service.customPopups(res.msg, 1);
+        }
       })
-
-
   }
 
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
+  toggleForm(val: any) {
+    this.yesSignup = val == 1 ? true : false;
+    this.yesLogin = val == 2 ? true : false;
   }
+
+  // TODO: Use EventEmitter with form value
 }
