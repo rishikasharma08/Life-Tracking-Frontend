@@ -15,36 +15,35 @@ h1 {
 .col-img {
     width: 56%;
 }
-.col-h{
+.col-h {
     width: 80%;
     margin: auto;
     margin-top: 73px;
     font-weight: 700;
     // color: rgb(243, 63, 93);
 }
-.col-sign{
+.col-sign {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
-*{
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     background: #16384c;
 }
 
-.container{
+.container {
     position: relative;
     width: 100%;
     display: flex;
@@ -55,40 +54,50 @@ body{
     margin: auto;
 }
 
-.container .card{
+.container .card {
     position: relative;
     max-width: 400px;
-    height: 420px;
+    height: 580px;
     background: #fff;
     margin: 30px 10px;
     padding: 20px 15px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 5px 202px rgba(0,0,0,0.5);
+    box-shadow: 0 5px 202px rgba(0, 0, 0, 0.5);
     transition: 0.3s ease-in-out;
-    border-radius : 4px;
+    border-radius: 4px;
+}
+.container .card:hover {
+    height: 620px;
+}
+.container .col-card:hover {
+    height: 550px!important;
 }
 
-.container .card:hover{
-    height: 600px;
+.col-btn {
+    margin-top: 30px;
+    padding: 11px;
+    border-radius: 20px;
 }
-
-.container .card .imgBx{
+.container .card .imgBx {
     position: relative;
     width: 300px;
     height: 260px;
     top: -60px;
     left: 20px;
     z-index: 1;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
-
-.container .card .imgBx img{
+.col-img2{
+    width: 324px!important;
+    height: 240px!important;
+}
+.container .card .imgBx img {
     max-width: 100%;
     border-radius: 4px;
 }
 
-.container .card .content{
+.container .card .content {
     position: relative;
     margin-top: -140px;
     padding: 10px 15px;
@@ -98,10 +107,32 @@ body{
     opacity: 0;
     transition: 0.3s ease-in-out;
 }
-
-.container .card:hover .content{
+.contentBefore {
+    position: relative;
+    margin-top: -60px;
+    padding: 10px 15px;
+    text-align: center;
+    color: #111;
+    transition: 0.3s ease-in-out;
+}
+.container .card:hover .content {
     visibility: visible;
     opacity: 1;
-    margin-top:  -40px;
+    margin-top: -40px;
     transition-delay: 0.3s;
 }
+.col-p {
+    padding-top: 20px;
+}
+.col-back{
+    width: 20px;
+    margin-left: 70px;
+}
+.back{
+    cursor: pointer;
+    font-size: 17px;
+}
+// button{
+//     background: #2727dabf;
+//     border-radius: none;
+// }

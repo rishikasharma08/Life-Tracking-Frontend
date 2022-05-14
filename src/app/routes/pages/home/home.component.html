@@ -11,36 +11,124 @@
           <h1 class="w3-jumbo w3-animate-top col-h">Life Tracking</h1>
         </div>
         <div class="col-3 col-sign">
-          <button class="btn btn-success">Signup/Login</button>
+          <button class="btn btn-success col-btn">Signup/Login</button>
         </div>
       </div>
-    </div>
-    <div class="w3-display-middle">
-      <!-- <p class="w3-large w3-center">35 days left</p> -->
     </div>
   </div>
 </div>
 
+<div class="back" *ngIf="!showMain" (click)="chooseAgain()">
+  <span>
+    <img class="col-back" src="../../../../assets/img/back.png" alt="">
+    Back</span>
+</div>
 
-<div class="container">
+<div class="container" *ngIf="showMain">
   <div class="card">
     <div class="imgBx">
       <img src="../../../../assets/img/health.jpg">
     </div>
-    <div class="content">
+    <div class="contentBefore col-hea">
       <h2>Health Track</h2>
-      <p>Achieving and maintaining a healthy lifestyle can be a challenge for many people as the busy nature of many lives means they often fall into bad habits because of their ease or speed. Tracking your health can make maintaining a healthy lifestyle much easier for the growing number of people that find it difficult to balance work, life and wellbeing. Health tracking, like with the dacadoo healthscore, can give you a tangible way to improve your lifestyle choices, which will in turn better your health in the long term.</p>
-      <button class="btn btn-success">Track Health</button>
+      <p class="col-p">Achieving and maintaining a healthy lifestyle can be a challenge for many people as the busy
+        nature of many
+        lives means they often fall into bad habits because of their ease or speed. Tracking your health can make
+        maintaining a healthy lifestyle much easier for the growing number of people that find it difficult to balance
+        work, life and wellbeing.</p>
+    </div>
+    <div class="content">
+      <button class="btn btn-success col-btn" (click)="healthCards()">Track Health</button>
     </div>
   </div>
   <div class="card">
     <div class="imgBx">
       <img src="../../../../assets/img/wealth.jpg">
     </div>
-    <div class="content">
+    <div class="contentBefore">
       <h2>Wealth Track</h2>
-      <p>There is a popular saying that “the easiest way of becoming bankrupt is by not paying attention to your expenses.” There is nothing that captures the importance of keeping track of your expenses better than that saying. Being aware of our spending habits is the best way of utilizing our money. When you know how much money you spend, it’s easy to balance your income with your spending and even save for the future.</p>
-      <button class="btn btn-success">Track Wealth</button>
+      <p class="col-p">There is a popular saying that “the easiest way of becoming bankrupt is by not paying attention
+        to your
+        expenses.” There is nothing that captures the importance of keeping track of your expenses better than that
+        saying. Being aware of our spending habits is the best way of utilizing our money. When you know how much money
+        you spend, it’s easy to balance your income with your spending and even save for the future.</p>
+    </div>
+    <div class="content">
+      <button class="btn btn-success col-btn" (click)="wealthCards()">Track Wealth</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="container" *ngIf="showHealth">
+  <div class="card col-card">
+    <div class="imgBx">
+      <img src="../../../../assets/img//sleep.jpg">
+    </div>
+    <div class="contentBefore col-hea">
+      <h2>Sleep Track</h2>
+      <p class="col-p">The benefits of sleep tracking are as flexible as your journey through life. It helps you make
+        informed decisions on your health. It clears away certain doubts and you can focus on that which remains, your
+        subjective experience on your quality of rest and what you need to reach better sleep.</p>
+    </div>
+    <div class="content">
+      <button class="btn btn-success col-btn" (click)="healthCards()">Track Sleep</button>
+    </div>
+  </div>
+  <div class="card col-card">
+    <div class="imgBx">
+      <img src="../../../../assets/img/water.jpg">
+    </div>
+    <div class="contentBefore col-hea">
+      <h2>Water Track</h2>
+      <p class="col-p">Water is essential for survival.Our bodies are made up of about 60% water, and throughout the day
+        we lose it due to sweating, breathing and, well, going to the bathroom. That’s why it’s so important to drink
+        plenty of water and to track the intake.</p>
+    </div>
+    <div class="content">
+      <button class="btn btn-success col-btn" (click)="healthCards()">Track Water</button>
+    </div>
+  </div>
+  <div class="card col-card">
+    <div class="imgBx">
+      <img src="../../../../assets/img/diet.jpg">
+    </div>
+    <div class="contentBefore col-hea">
+      <h2>Diet Track</h2>
+      <p class="col-p">Measuring food intake is a crucial part of living a healthy lifestyle and can help to maintain a
+        balanced diet and stay on top of health goals. When you track your food, you measure the amount of calories (and
+        nutritional value) that you put into your body.</p>
+    </div>
+    <div class="content">
+      <button class="btn btn-success col-btn" (click)="healthCards()">Track Diet</button>
+    </div>
+  </div>
+  <div class="card col-card">
+    <div class="imgBx">
+      <img src="../../../../assets/img/exercise.png">
+    </div>
+    <div class="contentBefore">
+      <h2>Exercise Track</h2>
+      <p class="col-p">Tracking the exercise progress is important because it lets you see how you are progressing in
+        terms of reaching your previously set goals, and see where you can make changes to get you back on track.</p>
+    </div>
+    <div class="content">
+      <button class="btn btn-success col-btn" (click)="wealthCards()">Track Exercise</button>
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="showWealth">
+  <div class="card col-card">
+    <div class="imgBx col-img2">
+      <img src="../../../../assets/img/expenditure.jpg">
+    </div>
+    <div class="contentBefore">
+      <h2>Expenditure Track</h2>
+      <p class="col-p">When you track your spending, you can cut out bad spending habits, create and stick to a budget, and make sure you’re putting money toward your goals.The benefits of tracking your expenses include finding and eliminating bad spending habits, preventing overspending.</p>
+    </div>
+    <div class="content">
+      <button class="btn btn-success col-btn" (click)="wealthCards()">Track Expenditure</button>
     </div>
   </div>
 </div>
