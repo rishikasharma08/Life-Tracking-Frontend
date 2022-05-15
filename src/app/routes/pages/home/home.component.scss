@@ -1,3 +1,4 @@
+@import url(../signup/signup.component.scss);
 .col-body,
 h1 {
     font-family: "Raleway", sans-serif;
@@ -20,7 +21,6 @@ h1 {
     margin: auto;
     margin-top: 73px;
     font-weight: 700;
-    // color: rgb(243, 63, 93);
 }
 .col-sign {
     display: flex;
@@ -132,7 +132,6 @@ body {
     cursor: pointer;
     font-size: 17px;
 }
-// button{
-//     background: #2727dabf;
-//     border-radius: none;
-// }
+.col-row{
+    width: 100%;
+}

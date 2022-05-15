@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
     password: new FormControl("")
   });
 
-  
+
   login() {
     let body = {
       email: this.loginForm.value.email,
@@ -40,16 +40,28 @@ export class SignupComponent implements OnInit {
     }
 
     this.service.api(body, `life_tracking/login_user`, 200, 'post')
-    .subscribe((res) => {
-      console.log(res.msg);
-      if (res.error == 0) {
-        this.service.customPopups(res.msg, 0);
-        this.route.navigate(['/home']);
-      }
-      else{
-        this.service.customPopups(res.msg, 1);
-      }
-    })
+      .subscribe((res) => {
+        console.log(res.msg);
+        if (res.error == 0) {
+          this.service.customPopups(res.msg, 0);
+          this.service.getUserInfo(res.user_id);
+
+          this.service.userInfo.subscribe((data: any) => {
+            localStorage.setItem('userToken', data[0].user_token);
+            localStorage.setItem('userId', data[0].user_id);
+            this.route.navigate(['/home']);
+            if (data[0].yesHealth == 1) {
+              localStorage.setItem('yesHealth', "1")
+            }
+            if (data[0].yesWealth == 1) {
+              localStorage.setItem('yesWealth', "1")
+            }
+          })
+        }
+        else {
+          this.service.customPopups(res.msg, 1);
+        }
+      })
   }
 
   registerSubmited() {
@@ -65,12 +77,22 @@ export class SignupComponent implements OnInit {
 
     this.service.api(body, `life_tracking/first_register`, 200, 'post')
       .subscribe((res) => {
-        console.log(res.msg);
         if (res.error == 0) {
           this.service.customPopups(res.msg, 0);
-          this.route.navigate(['/home']);
+          this.service.getUserInfo(res.user_id);
+          this.service.userInfo.subscribe((data: any) => {
+            localStorage.setItem('userToken', data[0].user_token);
+            localStorage.setItem('userId', data[0].user_id);
+            this.route.navigate(['/home']);
+            if (data[0].yesHealth == 1) {
+              localStorage.setItem('yesHealth', "1")
+            }
+            if (data[0].yesWealth == 1) {
+              localStorage.setItem('yesWealth', "1")
+            }
+          })
         }
-        else{
+        else {
           this.service.customPopups(res.msg, 1);
         }
       })

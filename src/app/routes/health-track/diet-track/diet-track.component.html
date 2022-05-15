@@ -1,0 +1,60 @@
+<div class="col-body">
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+        <div class="w3-display-topleft w3-padding-large w3-xlarge">
+            <div class="row">
+                <div class="col-4">
+                    <img src="../../../../assets/img/vecteezy_date-of-delivery-vector-filled-flat-sign-for-mobile-concept_7278549.jpg"
+                        alt="" class="col-img">
+                </div>
+                <div class="col-5">
+                    <h1 class="w3-jumbo w3-animate-top col-h">Diet Tracking</h1>
+                </div>
+                <div class="col-3 col-sign">
+                    <button class="btn btn-success col-btn" (click)="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <form [formGroup]="caloriesForm" (ngSubmit)="submitCalories()" class="border p-3 rounded-3">
+            <div class="container register">
+                <div class="row">
+                    <div class="col-md-9 register-right">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Add Meal</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control p-3" placeholder="meal *"
+                                                        value="" id="meal" formControlName="meal" />
+
+                                                    <button type="submit" [disabled]="!caloriesForm.valid"
+                                                        class="btn btn-primary mt-2">+ Add</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control p-3"
+                                                        placeholder=" calories *" value="" id="calories"
+                                                        formControlName="calories" />
+                                                    <a target="_blank"
+                                                        href="https://www.webmd.com/diet/healthtool-food-calorie-counter">Know
+                                                        Your Calorie...</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

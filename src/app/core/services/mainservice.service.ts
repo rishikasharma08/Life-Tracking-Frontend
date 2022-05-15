@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, throwError, timeout, TimeoutError } from 'rxjs';
+import { catchError, map, Observable, Subject, throwError, timeout, TimeoutError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 declare var require: any
 const CDP = require('chrome-remote-interface');
 
@@ -11,8 +12,27 @@ const CDP = require('chrome-remote-interface');
 export class MainserviceService {
   headers: any;
   timeoutError: any;
-  constructor(private http: HttpClient, private toastr: ToastrService) { }
+  userInfo = new Subject();
+  constructor(private http: HttpClient, private toastr: ToastrService, private route: Router) { }
 
+  getUserInfo(user_id: any) {
+    this.api({ id: user_id }, `life_tracking/user_info`, 200, 'post')
+      .subscribe((res) => {
+        if (res && res.error == 0 && res.data && res.data.length > 0) {
+          this.userInfo.next(res.data);
+        }
+        else {
+          this.customPopups(res.msg, 1);
+        }
+      })
+  }
+
+  logout() {
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('yesHealth');
+    this.route.navigate(['/signup']);
+  }
   api(_data: any, url: any, flag: any, method?: string): Observable<any> {
 
     let api_url = "http://localhost:3000/";
@@ -35,7 +55,7 @@ export class MainserviceService {
       output = this.http.post<any>(hitting_url, (_data));
     }
     else {
-      output = this.http.post(hitting_url, (_data),{responseType: 'text'});
+      output = this.http.post(hitting_url, (_data), { responseType: 'text' });
     }
 
     return output
