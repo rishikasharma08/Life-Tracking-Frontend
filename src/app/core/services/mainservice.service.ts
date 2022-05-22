@@ -18,7 +18,7 @@ export class MainserviceService {
   getUserInfo(user_id: any) {
     this.api({ id: user_id }, `life_tracking/user_info`, 200, 'post')
       .subscribe((res) => {
-        if (res && res.error == 0 && res.data && res.data.length > 0) {
+        if (res && res.error == 0) {
           this.userInfo.next(res.data);
         }
         else {
