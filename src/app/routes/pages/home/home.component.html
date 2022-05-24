@@ -11,38 +11,16 @@
           <h1 class="w3-jumbo w3-animate-top col-h">Life Tracking</h1>
         </div>
 
-        <div class="col-3">
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Dropdown
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <!-- <li><button class="dropdown-item" type="button" [routerLink]="['/signup']">Signup/Login</button></li> -->
-              <li><button class="dropdown-item" type="button">Another action</button></li>
-              <li><button class="dropdown-item" type="button">Something else here</button></li>
-            </ul>
-          </div>
-        </div>
-        <!-- <div class="col-3 col-sign" *ngIf="showSign">
+      
+        <div class="col-3 col-sign" *ngIf="showSign">
           <button class="btn btn-success col-btn" [routerLink]="['/signup']">Signup/Login</button>
         </div>
         <div class="col-3 col-sign" *ngIf="!showSign">
           <button class="btn btn-success col-btn" (click)="logout()">Logout</button>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown button
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-  </ul>
 </div>
 
 <div class="back" *ngIf="!showMain" (click)="chooseAgain()">
@@ -127,7 +105,7 @@
         nutritional value) that you put into your body.</p>
     </div>
     <div class="content">
-      <button class="btn btn-success col-btn" (click)="healthCards()">Track Diet</button>
+      <button class="btn btn-success col-btn" [routerLink]="['/diet']">Track Diet</button>
     </div>
   </div>
   <div class="card col-card">

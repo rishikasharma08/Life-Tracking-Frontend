@@ -59,7 +59,7 @@
 
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">Sr. No</th>
                             <th scope="col">Meal</th>
                             <th scope="col">Calories Intake</th>
                             <th scope="col">Actions</th>
@@ -67,10 +67,11 @@
                     </thead>
                     <tbody>
 
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
+                        <tr *ngFor="let diet of dietData; let i = index">
+                            <th scope="row">{{i + 1}}</th>
+                            <td>{{diet.meal}}</td>
+                            <td>{{diet.calories}}</td>
+                            <td></td>
                         </tr>
                     </tbody>
 
