@@ -1,0 +1,29 @@
+.col-body,
+h1 {
+    font-family: "Raleway", sans-serif;
+}
+.col-body {
+    height: 100%;
+    width: 98vw;
+}
+.col-img {
+    width: 56%;
+}
+.col-h {
+    width: 80%;
+    margin: auto;
+    margin-top: 73px;
+    font-weight: 700;
+}
+.col-sign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    }
+
+    .card-img-top{
+width: 10%;
+height: 15vw;
+object-fit: cover;
+    }

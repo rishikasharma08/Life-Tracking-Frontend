@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MainserviceService } from 'src/app/core/services/mainservice.service';
+import { FormGroup, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-sleep-track',
@@ -6,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sleep-track.component.scss']
 })
 export class SleepTrackComponent implements OnInit {
-
-  constructor() { }
+    constructor(private service: MainserviceService) { }
 
   ngOnInit(): void {
   }
-
+  logout() {
+    this.service.logout();
+  }
+  // submitCalories() {
+  //   console.log("HELLLO");
+  // }
 }
