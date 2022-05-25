@@ -10,6 +10,8 @@
         <div class="col-5">
           <h1 class="w3-jumbo w3-animate-top col-h">Life Tracking</h1>
         </div>
+
+      
         <div class="col-3 col-sign" *ngIf="showSign">
           <button class="btn btn-success col-btn" [routerLink]="['/signup']">Signup/Login</button>
         </div>
@@ -103,7 +105,7 @@
         nutritional value) that you put into your body.</p>
     </div>
     <div class="content">
-      <button class="btn btn-success col-btn" (click)="healthCards()">Track Diet</button>
+      <button class="btn btn-success col-btn" [routerLink]="['/diet']">Track Diet</button>
     </div>
   </div>
   <div class="card col-card">
@@ -187,8 +189,8 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group p-2">
-                          <input type="text" minlength="1" maxlength="2" class="form-control p-2" id="age" formControlName="age"
-                            placeholder="Age" value="" />
+                          <input type="text" minlength="1" maxlength="2" class="form-control p-2" id="age"
+                            formControlName="age" placeholder="Age" value="" />
                         </div>
                         <div class="form-group p-2">
                           <input type="text" minlength="1" maxlength="3" class="form-control p-2"
@@ -231,3 +233,4 @@
     </div>
   </div>
 </div>
+
