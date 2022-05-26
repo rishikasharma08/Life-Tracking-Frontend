@@ -19,11 +19,24 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
-    }
-
-    .card-img-top{
-width: 10%;
-height: 15vw;
-object-fit: cover;
-    }
+.card-img-top {
+    width: 10%;
+    height: 15vw;
+    object-fit: cover;
+}
+.col-img {
+    width: 60%;
+}
+a {
+    text-decoration: none;
+    // color: black;
+}
+.col-bg {
+    background: rgb(226, 240, 245);
+}
+.col-focus:hover {
+    transform: scale(1.04);
+    transition-duration: 0.4s;
+}

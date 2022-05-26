@@ -9,9 +9,11 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./sleep-track.component.scss']
 })
 export class SleepTrackComponent implements OnInit {
-    constructor(private service: MainserviceService) { }
+  
+  constructor(private service: MainserviceService) { }
 
   ngOnInit(): void {
+    // this.sleep_music = this.sleep_music.toString();
   }
   logout() {
     this.service.logout();
