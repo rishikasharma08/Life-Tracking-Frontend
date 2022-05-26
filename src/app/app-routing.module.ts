@@ -5,12 +5,14 @@ import { SleepTrackComponent } from './routes/health-track/sleep-track/sleep-tra
 import { SignupComponent } from './routes/pages/signup/signup.component';
 import { DietTrackComponent } from './routes/health-track/diet-track/diet-track.component';
 import { UserProfileComponent } from './routes/pages/user-profile/user-profile.component';
+import { WaterTrackComponent } from './routes/health-track/water-track/water-track.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'sleep', component: SleepTrackComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'diet', component: DietTrackComponent},
+  {path: 'water', component: WaterTrackComponent},
   {path: 'profile', component: UserProfileComponent},
 ];
 
