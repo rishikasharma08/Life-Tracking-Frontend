@@ -9,13 +9,28 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class ExerciseTrackComponent implements OnInit {
 
+  workout: any;
   constructor(private service: MainserviceService) { }
 
   ngOnInit(): void {
-    
+
   }
   logout() {
     this.service.logout();
   }
+
+  getWorkout(id: any) {
+    this.service.api({ work_id: id }, `life_tracking/getWorkouts`, 200, 'post')
+      .subscribe((res) => {
+        if (res.error == 0) {
+          this.workout = res.workout;
+          console.log(this.workout);
+          
+        }
+        else {
+          this.service.customPopups(res.msg, 1);
+        }
+      })
+  }
 }
- 
+
