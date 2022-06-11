@@ -7,6 +7,7 @@ import { DietTrackComponent } from './routes/health-track/diet-track/diet-track.
 import { UserProfileComponent } from './routes/pages/user-profile/user-profile.component';
 import { WaterTrackComponent } from './routes/health-track/water-track/water-track.component';
 import { ExerciseTrackComponent } from './routes/health-track/exercise-track/exercise-track.component';
+import { ExpenseTrackComponent } from './routes/expense-track/expense-track.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'diet', component: DietTrackComponent},
   {path: 'water', component: WaterTrackComponent},
   {path: 'exercise', component: ExerciseTrackComponent},
-  {path: 'profile', component: UserProfileComponent}
+  {path: 'profile', component: UserProfileComponent},
+  {path: 'expense', component: ExpenseTrackComponent}
 ];
 
 @NgModule({
