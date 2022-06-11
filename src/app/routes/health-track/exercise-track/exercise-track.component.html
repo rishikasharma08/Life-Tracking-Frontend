@@ -19,7 +19,7 @@
 
 
 <div class="container mx-auto">
-    <div class="row">
+    <div class="row" *ngIf="ifOptions">
         <div class="col">
             <div class="row row-cols-1 row-cols-md-2 g-4">
                 <div class="col">
@@ -57,6 +57,87 @@
               </div>
         </div>
     </div>
+
+    <div class="row" *ngIf="!ifOptions">
+        <div class="back" (click)="chooseAgain()">
+            <span>
+                <img class="col-back" src="../../../../assets/img/back.png" alt="">
+                Back</span>
+        </div>
+        <div class="mx-auto" style="width: 1000px;">
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Sr.No.</th>
+                        <th scope="col">Exercise</th>
+                        <th scope="col">Sets</th>
+                        <th scope="col">Reps</th>
+                        <th scope="col">Rest</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="yesMon">
+                    <h4>Monday</h4>
+                    <tr *ngFor="let mon of Monday; let i=index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{mon.name}}</td>
+                        <td>{{mon.reps}}</td>
+                        <td>{{mon.sets}}</td>
+                        <td>{{mon.rest}}</td>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="yesTues">
+                    <h4>Tuesday</h4>
+                    <tr *ngFor="let tue of Tuesday; let i=index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{tue.name}}</td>
+                        <td>{{tue.reps}}</td>
+                        <td>{{tue.sets}}</td>
+                        <td>{{tue.rest}}</td>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="yesWed">
+                    <h4>Wednesday</h4>
+                    <tr *ngFor="let wed of Wednesday; let i=index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{wed.name}}</td>
+                        <td>{{wed.reps}}</td>
+                        <td>{{wed.sets}}</td>
+                        <td>{{wed.rest}}</td>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="yesThur">
+                    <h4>Thursday</h4>
+                    <tr *ngFor="let thurs of Thursday; let i=index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{thurs.name}}</td>
+                        <td>{{thurs.reps}}</td>
+                        <td>{{thurs.sets}}</td>
+                        <td>{{thurs.rest}}</td>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="yesFri">
+                    <h4>Friday</h4>
+                    <tr *ngFor="let fri of Friday; let i=index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{fri.name}}</td>
+                        <td>{{fri.reps}}</td>
+                        <td>{{fri.sets}}</td>
+                        <td>{{fri.rest}}</td>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="yesSat">
+                    <h4>Saturday</h4>
+                    <tr *ngFor="let sat of Saturday; let i=index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{sat.name}}</td>
+                        <td>{{sat.reps}}</td>
+                        <td>{{sat.sets}}</td>
+                        <td>{{sat.rest}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-primary mt-2" (click)="selectWorkout()">Choose this Workout </button>
+        </div>
+    </div>
 </div>
-
-
