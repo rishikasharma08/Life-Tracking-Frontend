@@ -19,46 +19,47 @@
 
 
 <div class="container mx-auto">
-    <div class="row" *ngIf="ifOptions">
+    <div class="row" *ngIf="ifOptions && !selectedOption">
         <div class="col">
-            <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="row">
                 <div class="col">
-                  <div class="card">
-                    <img src="../../../../assets/img/workoutA.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h3 class="info">Workout A</h3>
+                    <div class="row">
+                        <div class="col" (click)="getWorkout(1)">
+                            <h3 class="info">Workout A</h3>
+                            <div class="card">
+                                <img src="../../../../assets/img/workoutA.jpg" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+                        <div class="col" (click)="getWorkout(2)">
+                            <h3 class="info">Workout B</h3>
+                            <div class="card">
+                                <img src="../../../../assets/img/workoutB.jpg" class="card-img-top" alt="...">
+
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <img src="../../../../assets/img/workoutB.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h3 class="info">Workout B</h3>
+                    <div class="row mt-3">
+                        <div class="col" (click)="getWorkout(3)">
+                            <h3 class="info">Workout C</h3>
+                            <div class="card">
+                                <img src="../../../../assets/img/workoutD.jpg" class="card-img-top" alt="...">
+
+                            </div>
+                        </div>
+                        <div class="col" (click)="getWorkout(4)">
+                            <h3 class="info">Workout D</h3>
+                            <div class="card">
+                                <img src="../../../../assets/img/workoutA.jpg" class="card-img-top" alt="...">
+
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-                <div class="col">
-                  <div class="card">
-                    <img src="../../../../assets/img/workoutD.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h3 class="info">Workout C</h3>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <img src="../../../../assets/img/workoutA.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h3 class="info">Workout D</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            </div>
         </div>
     </div>
 
-    <div class="row" *ngIf="!ifOptions">
+    <div class="row" *ngIf="!ifOptions && !getselectWorkout">
         <div class="back" (click)="chooseAgain()">
             <span>
                 <img class="col-back" src="../../../../assets/img/back.png" alt="">
@@ -139,5 +140,39 @@
             </table>
             <button type="submit" class="btn btn-primary mt-2" (click)="selectWorkout()">Choose this Workout </button>
         </div>
+    </div>
+</div>
+
+<!-- <div class="row" *ngIf="selectedOption && !msg"> -->
+<div class="row" *ngIf="selectedOption">
+    <div class="col">
+        <div class="mx-auto" style="width: 1000px;">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Sr.No.</th>
+                        <th scope="col">Exercise</th>
+                        <th scope="col">Sets</th>
+                        <th scope="col">Reps</th>
+                        <th scope="col">Rest</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let work of final_todays_work; let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{work.name}}</td>
+                        <td>{{work.sets}}</td>
+                        <td>{{work.reps}}</td>
+                        <td>{{work.rest}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-success float-end col-btn" (click)="doneWithToday()">Done</button>
+        </div>
+    </div>
+</div>
+<div class="row m-3" *ngIf="msg">
+    <div class="col">
+        <h4>You don't have any workout today to perform.</h4>
     </div>
 </div>
