@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MainserviceService } from 'src/app/core/services/mainservice.service';
 
 @Component({
   selector: 'app-expense-track',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpenseTrackComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: MainserviceService) { }
 
   ngOnInit(): void {
   }
-
+  logout() {
+    this.service.logout();
+  }
 }
