@@ -11,7 +11,7 @@
           <h1 class="w3-jumbo w3-animate-top col-h">Life Tracking</h1>
         </div>
 
-      
+
         <div class="col-3 col-sign" *ngIf="showSign">
           <button class="btn btn-success col-btn" [routerLink]="['/signup']">Signup/Login</button>
         </div>
@@ -59,7 +59,7 @@
         you spend, it’s easy to balance your income with your spending and even save for the future.</p>
     </div>
     <div class="content">
-      <button class="btn btn-success col-btn" (click)="wealthCards()">Track Wealth</button>
+      <button class="btn btn-success col-btn" (click)="letsWealth()">Track Wealth</button>
     </div>
   </div>
 </div>
@@ -135,7 +135,7 @@
         eliminating bad spending habits, preventing overspending.</p>
     </div>
     <div class="content">
-      <button class="btn btn-success col-btn" (click)="wealthCards()">Track Expenditure</button>
+      <button class="btn btn-success col-btn" [routerLink]="['/expense']">Track Expenditure</button>
     </div>
   </div>
 </div>
@@ -234,3 +234,44 @@
   </div>
 </div>
 
+
+
+<!-- Wealth Tracking Form -->
+<div class="modal fade" bsModal #wealthModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog"
+  aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="wealthModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="wealthTrackForm" (ngSubmit)="trackWealth()" class="border p-3 rounded-3">
+          <div class="container register">
+            <div class="row col-row">
+              <div class="col-md-9 register-right">
+                <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="row register-form">
+                      <h4>Let's Track your Wealth</h4>
+
+                      <div class="col-md-6">
+                        <div class="form-group p-2">
+                          <input type="text" minlength="3" name="txtEmpPhone" class="form-control p-2"
+                            id="total_income" formControlName="total_income" placeholder="Your Total Income" value="" />
+                        </div>
+                        <button type="submit" [disabled]="!wealthTrackForm.valid && wealthTrackForm.touched"
+                          class="btn btn-primary col-btn">SUBMIT</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

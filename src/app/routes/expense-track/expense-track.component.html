@@ -1,40 +1,60 @@
-<div class="expense">
-    <h2>Expense Tracker</h2>
-
-    <div class="container">
-      <h4>Your Balance</h4>
-      <h1 id="balance">$0.00</h1>
-
-      <div class="inc-exp-container">
-        <div>
-          <h4>Income</h4>
-          <p id="money-plus" class="money plus">+$0.00</p>
+<div class="col-body">
+  <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+    <div class="w3-display-topleft w3-padding-large w3-xlarge">
+      <div class="row">
+        <div class="col-4">
+          <img
+            src="../../../../assets/img/vecteezy_date-of-delivery-vector-filled-flat-sign-for-mobile-concept_7278549.jpg"
+            alt="" class="col-img">
         </div>
-        <div>
-          <h4>Expense</h4>
-          <p id="money-minus" class="money minus">-$0.00</p>
+        <div class="col-5">
+          <h1 class="w3-jumbo w3-animate-top col-h">Expense Tracking</h1>
+        </div>
+        <div class="col-3 col-sign">
+          <button class="btn btn-success col-btn" (click)="logout()">Logout</button>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="expense">
+    <div class="container">
+      <div *ngFor="let ov of overall_val">
+        <h4>Your Balance</h4>
+        <h1 id="balance">${{ov.total_Income - ov.total_expense}}</h1>
 
+        <div class="inc-exp-container">
+          <div>
+            <h4>Income</h4>
+            <p id="money-plus" class="money plus">+${{ov.total_Income}}</p>
+          </div>
+          <div>
+            <h4>Expense</h4>
+            <p id="money-minus" class="money minus">-${{ov.total_expense}}</p>
+          </div>
+        </div>
+      </div>
       <h3>History</h3>
       <ul id="list" class="list">
-        <!-- <li class="minus">
-          Cash <span>-$400</span><button class="delete-btn">x</button>
-        </li> -->
+        <li class="minus" *ngFor="let wel of wealthData">
+          Cash <span>-${{wel.expense}}</span>
+        </li>
       </ul>
 
       <h3>Add new transaction</h3>
       <form id="form">
-        <div class="form-control Etext">
-          <label for="text">Text</label>
-          <input type="text" id="text" placeholder="Enter text..." />
-        </div>
-        <div class="form-control Eamount">
-          <label for="amount">Amount <br />
-            (negative - expense, positive - income)</label>
-          <input type="number" id="amount" placeholder="Enter amount..." />
-        </div>
-        <button class="btn">Add transaction</button>
+        <h5>Text</h5>
+        <input type="text" id="text" placeholder="Enter text..." />
       </form>
+      <form action="" id="form2">
+        <h5>Income Amount</h5>
+        <input type="number" id="amount" [(ngModel)]="income" [ngModelOptions]="{standalone: true}"
+          placeholder="Enter income..." />
+
+        <h5>Expense Amount</h5>
+        <input type="number" id="amount" [(ngModel)]="expense" [ngModelOptions]="{standalone: true}"
+          placeholder="Enter expense..." />
+
+      </form>
+      <button class="button" (click)="addTrans()">Add transaction</button>
     </div>
-</div>
+  </div>

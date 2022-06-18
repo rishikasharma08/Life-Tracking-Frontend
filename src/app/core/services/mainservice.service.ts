@@ -31,6 +31,7 @@ export class MainserviceService {
     localStorage.removeItem('userToken');
     localStorage.removeItem('userId');
     localStorage.removeItem('yesHealth');
+    localStorage.removeItem('yesWealth');
     this.route.navigate(['/signup']);
   }
   api(_data: any, url: any, flag: any, method?: string): Observable<any> {

@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   postWealth: any = 0;
 
   @ViewChild('healthModal') public healthModal: any;
+  @ViewChild('wealthModal') public wealthModal: any;
 
   healthTrackForm = new FormGroup({
     profession: new FormControl(""),
@@ -25,6 +26,11 @@ export class HomeComponent implements OnInit {
     weight: new FormControl(""),
     height: new FormControl(""),
     goal: new FormControl("")
+  });
+
+
+  wealthTrackForm = new FormGroup({
+    total_income: new FormControl("")
   });
 
 
@@ -58,14 +64,22 @@ export class HomeComponent implements OnInit {
   }
 
   letsHealth() {
-
     this.postHealth = localStorage.getItem('yesHealth');
-
     if (this.postHealth == 1) {
       this.healthCards();
     }
     else {
       this.openModal();
+    }
+  }
+
+  letsWealth() {
+    this.postWealth = localStorage.getItem('yesWealth');
+    if (this.postWealth == 1) {
+      this.wealthCards();
+    }
+    else {
+      this.wealthModal.show();
     }
   }
 
@@ -90,6 +104,7 @@ export class HomeComponent implements OnInit {
         if (res && res.error == 0) {
           this.service.customPopups(res.msg, 0);
           this.healthModal.hide();
+          this.yesDone();
           this.healthCards();
         }
         else {
@@ -97,6 +112,39 @@ export class HomeComponent implements OnInit {
         }
       })
     console.log(this.healthTrackForm.value, "healthTrackForm")
+  }
+
+  trackWealth() {
+    let body = {
+      user_id: localStorage.getItem('userId'),
+      total_Income: this.wealthTrackForm.value.total_income
+    }
+
+    this.service.api(body, `life_tracking/user_wealth`, 200, 'post')
+      .subscribe((res) => {
+        if (res.error == 0) {
+          this.wealthModal.hide();
+          this.yesDone();
+          this.wealthCards();
+        }
+        else {
+          this.service.customPopups(res.msg, 1);
+        }
+      })
+  }
+
+  yesDone() {
+    this.service.userInfo.subscribe((data: any) => {
+      localStorage.setItem('userToken', data[0].user_token);
+      localStorage.setItem('userId', data[0].user_id);
+      this.route.navigate(['/home']);
+      if (data[0].yesHealth == 1) {
+        localStorage.setItem('yesHealth', "1")
+      }
+      if (data[0].yesWealth == 1) {
+        localStorage.setItem('yesWealth', "1")
+      }
+    })
   }
 
   logout() {
